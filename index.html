@@ -4,11 +4,7 @@
 <head>
   <base href="/">
 
-  <script src="https://telegram.org/js/telegram-web-app.js?56">
-    window.Telegram.WebApp.ready()
-    window.Telegram.WebApp.expand()
-    window.Telegram.WebApp.disableVerticalSwipes()
-  </script>
+  <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
 
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
@@ -34,6 +30,13 @@
   <script>
     var webRenderer = "auto";
     var useColorEmoji = false;
+
+    window.addEventListener('load', function() {
+      window.Telegram.WebApp.ready();
+      window.Telegram.WebApp.expand();
+      window.Telegram.WebApp.isVerticalSwipesEnabled(false); // Отключаем вертикальный свайп
+      window.Telegram.WebApp.disableVerticalSwipes(); // Дополнительная команда
+    });
   </script>
 
   <script>webRenderer="canvaskit";</script>
