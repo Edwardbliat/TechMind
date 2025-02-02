@@ -33,17 +33,22 @@
 
     // Ждем загрузки библиотеки Telegram
     window.addEventListener('load', function() {
-      window.Telegram.WebApp.ready();
-      window.Telegram.WebApp.expand();
-      window.Telegram.WebApp.enableSwipe(false); // Отключаем вертикальный свайп
-      window.Telegram.WebApp.disableVerticalSwipes(); // Дополнительная команда, если она поддерживается
+      // Проверьте, доступна библиотека перед использованием
+      if (window.Telegram && window.Telegram.WebApp) {
+        window.Telegram.WebApp.ready();
+        window.Telegram.WebApp.expand();
+
+        // Отключаем вертикальные свайпы
+        window.Telegram.WebApp.disableVerticalSwipes(); 
+      } else {
+        console.error('Telegram WebApp is not loaded correctly');
+      }
     });
   </script>
 
   <script>webRenderer="canvaskit";</script>
   <script>useColorEmoji=false;</script>
 
-  
   <script>
       var micropipIncludePre = false;
       var pythonModuleName = "main";
@@ -51,6 +56,7 @@
   <script src="python.js"></script>
   
 </head>
+
 
 
 <body>
