@@ -5,7 +5,7 @@
   <base href="/">
 
   <script src="https://telegram.org/js/telegram-web-app.js?56"></script>
-
+  
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="description" content="Flet application.">
@@ -31,11 +31,12 @@
     var webRenderer = "auto";
     var useColorEmoji = false;
 
+    // Ждем загрузки библиотеки Telegram
     window.addEventListener('load', function() {
       window.Telegram.WebApp.ready();
       window.Telegram.WebApp.expand();
-      window.Telegram.WebApp.isVerticalSwipesEnabled(false); // Отключаем вертикальный свайп
-      window.Telegram.WebApp.disableVerticalSwipes(); // Дополнительная команда
+      window.Telegram.WebApp.enableSwipe(false); // Отключаем вертикальный свайп
+      window.Telegram.WebApp.disableVerticalSwipes(); // Дополнительная команда, если она поддерживается
     });
   </script>
 
@@ -43,13 +44,14 @@
   <script>useColorEmoji=false;</script>
 
   
-        <script>
-            var micropipIncludePre = false;
-            var pythonModuleName = "main";
-        </script>
-        <script src="python.js"></script>
-        
+  <script>
+      var micropipIncludePre = false;
+      var pythonModuleName = "main";
+  </script>
+  <script src="python.js"></script>
+  
 </head>
+
 
 <body>
   <div id="loading">
